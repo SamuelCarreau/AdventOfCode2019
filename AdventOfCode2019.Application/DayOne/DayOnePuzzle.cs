@@ -3,22 +3,17 @@ using System;
 
 namespace AdventOfCode2019.Application.DayOne
 {
-    public class DayOnePuzzle : IAdventOfCodePuzzle
+    public class DayOnePuzzle : BasePuzzle
     {
-        public string PuzzleName { get; }
+        public DayOnePuzzle(string puzzleName) : base(puzzleName) { }
 
-        public DayOnePuzzle(string puzzleName)
-        {
-            PuzzleName = puzzleName;
-        }
-
-        public string[] RunFirst(string[] input)
+        public override string[] RunFirst(string[] input)
         {
             return new string[]{ FuelCalculator.GetTotalFuelRequied
                 (input,FuelCalculator.GetFuelRequiredForMass).ToString()};
         }
 
-        public string[] RunSecond(string[] input)
+        public override string[] RunSecond(string[] input)
         {
             return new string[]{ FuelCalculator.GetTotalFuelRequied
                 (input,FuelCalculator.GetFuelForMassIncludingFuelMass).ToString()};

@@ -1,10 +1,7 @@
 ﻿using AdventOfCode2019.Application.DayOne;
+using AdventOfCode2019.Application.DayTwo;
 using AdventOfCode2019.Application.Interface;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode2019.Application
 {
@@ -17,6 +14,7 @@ namespace AdventOfCode2019.Application
             PuzzlesCollection = new Dictionary<int, IAdventOfCodePuzzle>();
 
             PuzzlesCollection.Add(1, new DayOnePuzzle("DayOne"));
+            PuzzlesCollection.Add(2, new DayTwoPuzzle("DayTwo"));
         }
 
         public IAdventOfCodePuzzle GetPuzzleByDayNumber(int day)

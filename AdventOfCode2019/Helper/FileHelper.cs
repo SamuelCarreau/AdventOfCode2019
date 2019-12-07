@@ -11,11 +11,17 @@ namespace AdventOfCode2019.Helper
     public static class FileHelper
     {
 
-        public static string[] ReadFile(string fileName)
+        public static string[] ReadFileLines(string fileName)
         {
-            string path = Path.Combine(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory), $@"..\..\PuzzleInput\{fileName}");
+            string path = GetfilePath(fileName);
             string[] files = File.ReadAllLines(path);
             return files;
+        }
+
+        public static string[] ReadCSVFile(string fileName)
+        {
+            string path = GetfilePath(fileName);
+            return File.ReadAllText(path).Split(',');
         }
 
         public static void WriteFile(string[] textInput,string fileName)
@@ -33,5 +39,9 @@ namespace AdventOfCode2019.Helper
 
         }
         
+        private static string GetfilePath(string fileName)
+        {
+            return Path.Combine(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory), $@"..\..\PuzzleInput\{fileName}.txt");
+        }
     }
 }
